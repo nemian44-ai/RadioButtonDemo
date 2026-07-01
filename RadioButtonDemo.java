@@ -60,19 +60,19 @@ public class RadioButtonDemo extends JFrame implements ActionListener {
 
         if (bird.isSelected()) {
             pet = "Bird";
-            image = "bird.jpg";
+            image = "bird.jpeg";
         } else if (cat.isSelected()) {
             pet = "Cat";
-            image = "cat.jpg";
+            image = "cat.jpeg";
         } else if (dog.isSelected()) {
             pet = "Dog";
-            image = "dog.jpg";
+            image = "dog.jpeg";
         } else if (rabbit.isSelected()) {
             pet = "Rabbit";
-             image = "rabbit.jpg";
+             image = "rabbit.jpeg";
         } else if (pig.isSelected()) {
             pet = "Pig";
-            image = "pig.jpg";
+            image = "pig.jpeg";
         }
 
         imageLabel.setIcon(new ImageIcon(image));
