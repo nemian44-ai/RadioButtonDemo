@@ -6,47 +6,43 @@ public class RadioButtonDemo extends JFrame implements ActionListener {
 
     JRadioButton bird, cat, dog, rabbit, pig;
     JLabel imageLabel;
-    ButtonGroup group;
+      public RadioButtonDemo() {
 
-    public RadioButtonDemo() {
         setTitle("RadioButton Demo");
         setSize(600, 400);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new FlowLayout());
-           // Create radio buttons
+
         bird = new JRadioButton("Bird");
         cat = new JRadioButton("Cat");
         dog = new JRadioButton("Dog");
         rabbit = new JRadioButton("Rabbit");
         pig = new JRadioButton("Pig");
 
-        // Group radio buttons
-        group = new ButtonGroup();
+        ButtonGroup group = new ButtonGroup();
         group.add(bird);
         group.add(cat);
         group.add(dog);
         group.add(rabbit);
         group.add(pig);
-   // Add listeners
+
         bird.addActionListener(this);
         cat.addActionListener(this);
         dog.addActionListener(this);
         rabbit.addActionListener(this);
         pig.addActionListener(this);
 
-        // Left panel
-        JPanel leftPanel = new JPanel();
-        leftPanel.setLayout(new GridLayout(5, 1));
-        leftPanel.add(bird);
-        leftPanel.add(cat);
-        leftPanel.add(dog);
-        leftPanel.add(rabbit);
-        leftPanel.add(pig);
-          // Image label
-        imageLabel = new JLabel();
-        imageLabel.setPreferredSize(new Dimension(250, 250));
+        JPanel panel = new JPanel();
+        panel.setLayout(new GridLayout(5,1));
+  panel.add(bird);
+        panel.add(cat);
+        panel.add(dog);
+        panel.add(rabbit);
+        panel.add(pig);
 
-        add(leftPanel);
+        imageLabel = new JLabel();
+
+        add(panel);
         add(imageLabel);
 
         setVisible(true);
@@ -56,33 +52,35 @@ public class RadioButtonDemo extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
 
         String pet = "";
-        String image = "";
 
         if (bird.isSelected()) {
             pet = "Bird";
-            image = "bird.jpeg";
-        } else if (cat.isSelected()) {
+            imageLabel.setIcon(new ImageIcon("images/bird.jpg"));
+        }
+    if (cat.isSelected()) {
             pet = "Cat";
-            image = "cat.jpeg";
-        } else if (dog.isSelected()) {
-            pet = "Dog";
-            image = "dog.jpeg";
-        } else if (rabbit.isSelected()) {
-            pet = "Rabbit";
-             image = "rabbit.jpeg";
-        } else if (pig.isSelected()) {
-            pet = "Pig";
-            image = "pig.jpeg";
+            imageLabel.setIcon(new ImageIcon("images/cat.jpg"));
         }
 
-        imageLabel.setIcon(new ImageIcon(image));
+        if (dog.isSelected()) {
+            pet = "Dog";
+            imageLabel.setIcon(new ImageIcon("images/dog.jpg"));
+        }
 
-        JOptionPane.showMessageDialog(this,
-                "You selected: " + pet,
-                "Pet Selected",
-                JOptionPane.INFORMATION_MESSAGE);
+        if (rabbit.isSelected()) {
+            pet = "Rabbit";
+            imageLabel.setIcon(new ImageIcon("images/rabbit.jpg"));
+        }
+
+        if (pig.isSelected()) {
+            pet = "Pig";
+            imageLabel.setIcon(new ImageIcon("images/pig.jpg"));
+        }
+
+        JOptionPane.showMessageDialog(this, "You selected: " + pet);
     }
- public static void main(String[] args) {
+
+    public static void main(String[] args) {
         new RadioButtonDemo();
     }
 }
